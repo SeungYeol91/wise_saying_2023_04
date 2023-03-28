@@ -16,6 +16,11 @@ public class App {
             String command = sc.nextLine().trim();
             if (command.equals("종료")) {
                 break;
+            } else if (command.equals("등록")) {
+                System.out.print("명언 : ");
+                String command2 = sc.nextLine();
+                System.out.print("작가 : ");
+                String command3 = sc.nextLine();
             }
         }
     }
