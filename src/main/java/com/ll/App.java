@@ -1,5 +1,7 @@
 package com.ll;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -11,7 +13,8 @@ public class App {
 
     public void run() {
         System.out.println("== 명언 앱 ==");
-        int a = 0;
+        int count = 0;
+        ArrayList<WiseSaying> Say = new ArrayList<>();
         while (true) {
             System.out.print("명령) ");
             String command = sc.nextLine().trim();
@@ -19,13 +22,25 @@ public class App {
                 break;
             } else if (command.equals("등록")) {
                 System.out.print("명언 : ");
-                String command2 = sc.nextLine();
+                String content = sc.nextLine().trim();
                 System.out.print("작가 : ");
-                a++;
-                String command3 = sc.nextLine();
-                System.out.printf("%d번 명언이 등록되었습니다.\n", a);
+                String authorName = sc.nextLine().trim();
+                int id = count + 1;
+                WiseSaying wis = new WiseSaying(id, content, authorName);
+                Say.add(wis);
+                System.out.printf("%d번 명언이 등록되었습니다.\n", id);
+                count = id;
+
                 continue;
+            } else if (command.equals("목록")) {
+                System.out.println("번호 / 작가 / 명언");
+                System.out.println("-".repeat(30));
+                for (int i = Say.size() - 1; i >= 0; i--) {
+                    WiseSaying wise = Say.get(i);
+                    System.out.printf("%d / %s / %s\n", wise.getId(), wise.getAuthorName(), wise.getContent());
+                }
             }
         }
     }
 }
+
