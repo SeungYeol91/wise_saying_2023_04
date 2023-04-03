@@ -1,14 +1,18 @@
-package com.ll;
+package com.ll.wiseSaying.entity;
 
-public class List {
+public class WiseSaying {
+    private long id;
     private String content;
     private String authorName;
-    private int count;
 
-    public List(String content, String authorName, int count) {
+    public WiseSaying(long id, String content, String authorName) {
+        this.id = id;
         this.content = content;
         this.authorName = authorName;
-        this.count = count;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getContent() {
@@ -17,9 +21,5 @@ public class List {
 
     public String getAuthorName() {
         return authorName;
-    }
-
-    public int getCount() {
-        return count;
     }
 }
