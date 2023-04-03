@@ -86,11 +86,15 @@ public class WiseSayingController {
             return;
         }
         System.out.printf("기존 명언 %s\n", wiseSaying.getContent());
-        System.out.printf("수정할 명언");
-        String Content = Container.getScanner().nextLine().trim();
+        System.out.printf("수정할 명언: ");
+        String content = Container.getScanner().nextLine().trim();
         System.out.printf("기존 작가 %s\n", wiseSaying.getAuthorName());
-        System.out.printf("수정할 작가이름");
-        String AuthorName = Container.getScanner().nextLine().trim();
+        System.out.printf("수정할 작가이름: ");
+        String authorName = Container.getScanner().nextLine().trim();
         // 여기까지
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthorName(authorName);
+
+        System.out.println("수정 되었습니다.");
     }
 }
